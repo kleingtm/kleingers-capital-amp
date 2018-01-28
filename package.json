@@ -1,0 +1,9 @@
+{
+  "name": "kleingers-capital",
+  "version": "1.0.0",
+  "description": "Kleingers Capital amp website",
+  "main": "index.js",
+  "repository": "https://github.com/kleingtm/kleingers-capital-amp.git",
+  "author": "Tom Kleingers <tom@evanstonavenue.com>",
+  "license": "MIT"
+}
