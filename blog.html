@@ -11,17 +11,11 @@
 
     <style amp-custom>
 
-        /* START COMMON! */
-
         /* typography */
-        p {
-            line-height: 28px;
-        }
         body {
-            font-family: "kepler-std-display",serif;
-            font-weight: 300;
-            font-size: 20px;
-            letter-spacing: 0.777777px;
+            font-family: "ingra",sans-serif;
+            font-weight: 100;
+            font-size: 18px;
         }
         h1, h2, h3, h4, h5 {  font-family: acta-display, serif;  font-style: normal;  font-weight: 500;}
         h1, h2 {  -webkit-margin-before: 0.3em; -webkit-margin-after: 0.3em;}
@@ -36,10 +30,10 @@
             h4 { font-size: calc(55px * 0.6)}
         }
         @media screen and (min-width: 1163px) {
-            body { font-size: 22px;}
+            body { font-size: 20px;}
         }
         @media screen and (max-width: 1162px) and (min-width: 1050px) {
-            body { font-size: calc((4vw * 0.43) + 2px);}
+            body { font-size: calc(4vw * 0.43);}
         }
         @media screen and (max-width: 1375px) and (min-width: 1050px) {
             h1 { font-size: 4vw; }
@@ -61,15 +55,15 @@
         }
 
         @media screen and (min-width: 601px) {
-            .container > *, .k-logo, .header-text {
-                padding-left: 50px;
-                padding-right: 50px;
+            .container, .k-logo {
+                margin-left: 50px;
+                margin-right: 50px;
             }
         }
         @media screen and (max-width: 600px) {
-            .container > *, .k-logo, .header-text {
-                padding-left: 20px;
-                padding-right: 20px;
+            .container, .k-logo {
+                margin-left: 20px;
+                margin-right: 20px;
             }
         }
 
@@ -81,89 +75,35 @@
             transform: translateX(-50%);
         }
 
-        /*.container > *:first-child {*/
-            /*padding-top: 100px;*/
-        /*}*/
-        /*.container > *:last-child {*/
-            /*padding-bottom: 100px;*/
-        /*}*/
-
-        .section {
-            padding-top: 60px;
-            padding-bottom: 60px
+        .container {
+            margin-top: 50px;
+            margin-bottom: 50px;
         }
 
-        .centered-text-widget {
-            color: #131313;
-            font-size: 24px;
-            font-weight: 200;
-            //font-family: "ingra-2",sans-serif;
-            font-family: "kepler-std-display",serif;
-            letter-spacing: 1px;
-            line-height: 36px;
-            text-align: center;
-            margin: auto;
-            max-width: 700px;
-            padding: 0 20px;
-        }
-
-        /* END COMMON! */
-
-        .header-text h1 {
-            color: white;
-            //color:  #004421;
-        }
-
-        .header-text {
-            top: 50%;
-            transform: translateY(-25%);
-            position: absolute;
-            z-index: 1;
-        }
-
-        .header-text h5 {
-            font-family: "ingra-2",sans-serif;
-            margin-left: 5px;
-            font-weight: 900;
-            //color: #1AA45D;
-            color: #26da7d;
-        }
-
-        .header-img:after {
-            content: '';
-            background-color: #151718;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            position: absolute;
-            opacity: 0.2;
-        }
     </style>
 </head>
 <body style="background-color: #fafafa;">
 
 <div class="header" style="position:relative; min-height: 200px;">
-    <amp-img class="k-logo" src="https://s3.us-east-2.amazonaws.com/evanstonavenue-secure-us/Kleingers-capital.svg"
+    <amp-img class="k-logo" src="https://s3.us-east-2.amazonaws.com/evanstonavenue-secure-us/Kleingers-capital-muted.svg"
              width="95" height="95" layout="responsive"
              style="margin-top: 20px;
+           /*      margin-left: 50%;
+                 transform: translateX(-50%);*/
                  position: absolute;
                  max-width: 95px;
                  width: 15%;
                  height: auto;
                  z-index: 10;">
     </amp-img>
-    <amp-img class='header-img' src='https://s3.us-east-2.amazonaws.com/evanstonavenue-secure-us/blockchain-network-header.jpg'
+    <amp-img class='header-img' src='https://s3.us-east-2.amazonaws.com/evanstonavenue-secure-us/stock-header.jpg'
              width="1500" height="621" layout="responsive" style="min-height: 400px;">
-        <div class="header-text">
-            <h5 class="header-title" style="z-index: 11;
-                                        text-align: left;">
-                KLEINGERS CAPITAL</h5>
-            <h1 class="header-title" style="z-index: 11; margin-bottom: 0; font-weight: 900;">
-                Blockchain & Cryptocurrency</h1>
-            <h1 class="header-title" style="z-index: 11; margin-top: 5px; margin-left: 50px; color: #26da7d;">
-                Value Investing</h1>
-        </div>
+        <h1 class="header-title" style="z-index: 11;color: white;position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%,-50%);
+                                        text-align: center;">
+            10 Simple Steps to Investing in Cryptocurrency</h1>
     </amp-img>
     <!-- <amp-img src="https://s3.us-east-2.amazonaws.com/evanstonavenue-secure-us/growth.web.png"
               width="1500" height="621" layout="responsive"
@@ -171,10 +111,6 @@
 </div>
 
 <div class="container">
-    <div class="section">
-        <p class="centered-text-widget">The blockchain will forever change the landscape of finance and governing power.
-            And we're doing the source-code level due diligence to invest in the winners.</p>
-    </div>
     <h1>Kleingers Capital</h1>
     <h2>Kleingers Capital</h2>
     <h3>Kleingers Capital</h3>
