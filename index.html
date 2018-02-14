@@ -11,59 +11,79 @@
 
     <style amp-custom>
 
+        /*
+            Every widget section should be a
+            <div class="section">...
+            </div>
+                        By default, section is full-page width
+                        If you want limited width for body text, etc, use
+            <div class="section contained-width">...
+            </div>
+        */
+
         /* START COMMON! */
+        .contained-width {
+            max-width: 700px;
+            margin: auto;
+        }
 
         /* typography */
-        p {
-            line-height: 28px;
-        }
         body {
             font-family: "kepler-std-display",serif;
             font-weight: 300;
             font-size: 20px;
             letter-spacing: 0.777777px;
         }
-        h1, h2, h3, h4, h5 {  font-family: acta-display, serif;  font-style: normal;  font-weight: 500;}
-        h1, h2 {  -webkit-margin-before: 0.3em; -webkit-margin-after: 0.3em;}
-        h3, h4, h5, p, span {  -webkit-margin-before: 0.25em; -webkit-margin-after: 0.25em;}
+        h4 { font-size: 20px;}
+        h1, h2, h3, h4, h5 { font-family: "kepler-std-display",serif;  font-style: normal;  font-weight: 500;}
+        h1, h2 {  -webkit-margin-before: 0.15em; -webkit-margin-after: 0.15em;}
+        h3, h4, h5, p, span {  -webkit-margin-before: 0.1em; -webkit-margin-after: 0.1em;}
         p {
-            -webkit-margin-before: 0;-webkit-margin-after: 0;-webkit-margin-start: 0;-webkit-margin-end: 0;
+            -webkit-margin-before: 0;
+            -webkit-margin-after: 20px;
+            -webkit-margin-start: 0;
+            -webkit-margin-end: 0;
+            line-height: 26px;
         }
         @media screen and (min-width: 1375px) {
             h1 { font-size: 55px; }
-            h2 { font-size: calc(55px * 0.85);}
-            h3 { font-size: calc(55px * 0.75); color: #656565;}
-            h4 { font-size: calc(55px * 0.6)}
+            h2 { font-size: calc(55px * 0.75);}
+            h3 { font-size: calc(55px * 0.6); color: #656565;}
+            h4 { font-size: calc(55px * 0.5)}
         }
         @media screen and (min-width: 1163px) {
-            body { font-size: 22px;}
+            body { font-size: 22px; }
+            p {line-height: 28px;}
+            h4 {font-size: 22px;}
         }
         @media screen and (max-width: 1162px) and (min-width: 1050px) {
             body { font-size: calc((4vw * 0.43) + 2px);}
+            p {line-height: 28px;}
         }
         @media screen and (max-width: 1375px) and (min-width: 1050px) {
             h1 { font-size: 4vw; }
-            h2 { font-size: calc(4vw * 0.85);}
-            h3 { font-size: calc(4vw * 0.75); color: #656565;}
-            h4 { font-size: calc(4vw * 0.6);}
+            h2 { font-size: calc(4vw * 0.75);}
+            h3 { font-size: calc(4vw * 0.6); color: #656565;}
         }
         @media screen and (max-width: 1049px) and (min-width: 600px) {
             h1 { font-size: 42px; }
-            h2 { font-size: calc(42px * 0.85);}
-            h3 { font-size: calc(42px * 0.75); color: #656565;}
-            h4 { font-size: calc(42px * 0.6);}
+            h2 { font-size: calc(42px * 0.75);}
+            h3 { font-size: calc(42px * 0.6); color: #656565;}
         }
         @media screen and (max-width: 599px) {
             h1 { font-size: 36px; }
-            h2 { font-size: calc(36px * 0.85);}
-            h3 { font-size: calc(36px * 0.75); color: #656565;}
-            h4 { font-size: calc(36px * 0.6);}
+            h2 { font-size: calc(36px * 0.75);}
+            h3 { font-size: calc(36px * 0.6); color: #656565;}
         }
 
         @media screen and (min-width: 601px) {
-            .container > *, .k-logo, .header-text {
+            .container > *:not(ol), .k-logo, .header-text {
                 padding-left: 50px;
                 padding-right: 50px;
+            }
+            ol, ul, blockquote {
+                padding-left: calc(50px + 40px) !important;
+                padding-right: calc(50px + 40px) !important;
             }
         }
         @media screen and (max-width: 600px) {
@@ -71,7 +91,64 @@
                 padding-left: 20px;
                 padding-right: 20px;
             }
+            ol, ul, blockquote {
+                padding-left: calc(20px + 20px) !important;
+                padding-right: calc(20px + 20px) !important;
+            }
         }
+
+        blockquote {
+            border-left: 2px solid #1AA45D;
+            background-color: #f3f3f3;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            max-width: 700px;
+            margin: 40px auto;
+        }
+        h2 + h3 {
+            margin-top: 10px;
+        }
+
+        .centered-text-widget, blockquote {
+            color: #131313;
+            font-size: 24px;
+            font-weight: 200;
+            font-family: "kepler-std-display",serif;
+            letter-spacing: 1px;
+            line-height: 36px;
+            text-align: center;
+        }
+
+        .centered-text-widget {
+            margin: auto;
+            max-width: 700px;
+            padding: 0 20px;
+        }
+
+        ul > li:not(first-of-type), ol > li:not(first-of-type) {
+            margin-top: 10px;
+        }
+
+        /* end typography */
+
+
+        /* tables */
+        table {
+            border-collapse: collapse;
+        }
+        table td {
+            padding-left: 10px;
+            padding-right: 10px;
+            text-align: center;
+        }
+        tbody tr:first-of-type {
+            border-bottom: 1px solid #1AA45D;
+        }
+        tbody tr:nth-of-type(1) > td, tbody tr:nth-of-type(2) > td {
+            padding-top: 30px;
+        }
+        /* end tables */
 
         /* responsive header image */
         .header-img img.i-amphtml-fill-content {
@@ -81,38 +158,17 @@
             transform: translateX(-50%);
         }
 
-        /*.container > *:first-child {*/
-            /*padding-top: 100px;*/
-        /*}*/
-        /*.container > *:last-child {*/
-            /*padding-bottom: 100px;*/
-        /*}*/
-
-        .section {
+        .section:first-of-type {
             padding-top: 60px;
-            padding-bottom: 60px
         }
 
-        .centered-text-widget {
-            color: #131313;
-            font-size: 24px;
-            font-weight: 200;
-            //font-family: "ingra-2",sans-serif;
-            font-family: "kepler-std-display",serif;
-            letter-spacing: 1px;
-            line-height: 36px;
-            text-align: center;
-            margin: auto;
-            max-width: 700px;
-            padding: 0 20px;
+        .section {
+            padding-bottom: 60px
         }
 
         /* END COMMON! */
 
-        .header-text h1 {
-            color: white;
-            //color:  #004421;
-        }
+
 
         .header-text {
             top: 50%;
@@ -121,12 +177,20 @@
             z-index: 1;
         }
 
+        .header-text h1 {
+            color: white;
+        //color:  #004421;
+        }
+
         .header-text h5 {
             font-family: "ingra-2",sans-serif;
-            margin-left: 5px;
             font-weight: 900;
-            //color: #1AA45D;
+        //color: #1AA45D;
             color: #26da7d;
+        }
+
+        .header-text h1, .header-text h5 {
+            z-index: 11;
         }
 
         .header-img:after {
@@ -156,18 +220,14 @@
     <amp-img class='header-img' src='https://s3.us-east-2.amazonaws.com/evanstonavenue-secure-us/blockchain-network-header.jpg'
              width="1500" height="621" layout="responsive" style="min-height: 400px;">
         <div class="header-text">
-            <h5 class="header-title" style="z-index: 11;
-                                        text-align: left;">
+            <h5 class="header-title">
                 KLEINGERS CAPITAL</h5>
-            <h1 class="header-title" style="z-index: 11; margin-bottom: 0; font-weight: 900;">
+            <h1 class="header-title" style="margin-bottom: 0; font-weight: 500;">
                 Blockchain & Cryptocurrency</h1>
-            <h1 class="header-title" style="z-index: 11; margin-top: 5px; margin-left: 50px; color: #26da7d;">
+            <h1 class="header-title" style="margin-top: 5px; margin-left: 50px; color: #26da7d;">
                 Value Investing</h1>
         </div>
     </amp-img>
-    <!-- <amp-img src="https://s3.us-east-2.amazonaws.com/evanstonavenue-secure-us/growth.web.png"
-              width="1500" height="621" layout="responsive"
-              style="margin-top: 20px; margin-bottom: 20px;"></amp-img>-->
 </div>
 
 <div class="container">
@@ -175,11 +235,47 @@
         <p class="centered-text-widget">The blockchain will forever change the landscape of finance and governing power.
             And we're doing the source-code level due diligence to invest in the winners.</p>
     </div>
-    <h1>Kleingers Capital</h1>
-    <h2>Kleingers Capital</h2>
-    <h3>Kleingers Capital</h3>
-    <h4>Kleingers Capital</h4>
-    <p><b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+    <div class="section contained-width">
+        <h1>Kleingers Capital</h1>
+        <p><b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <h2>Kleingers Capital</h2>
+        <p><b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <h3>Kleingers Capital</h3>
+        <p><b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <h4>Kleingers Capital</h4>
+        <p><b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <p><b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <p>For instance, this is a bullet list:</p>
+        <ul>
+            <li>
+                <b>Item 1:</b> This is the item
+            </li>
+            <li>
+                <b>Item 2:</b> This is the item
+            </li>
+            <li>
+                <b>Item 3:</b> This is the item
+            </li>
+        </ul>
+
+        <p>For instance, this is a numbered list:</p>
+        <ol>
+            <li>
+                This is the item
+            </li>
+            <li>
+                This is the item
+            </li>
+            <li>
+                This is the item
+            </li>
+        </ol>
+
+        <p>For instance, this is a block quote:</p>
+        <blockquote>Technical sales isn’t about truth. It’s about the art of selling a fantasy to those lacking the expertise to invalidate it. </blockquote>
+
+    </div>
 </div>
 </body>
 </html>

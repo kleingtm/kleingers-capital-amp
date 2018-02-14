@@ -1,71 +1,172 @@
+
 <!doctype html>
+
 <html ⚡>
+
 <head>
+
     <meta charset="utf-8">
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <title>Hello AMP world</title>
+
+    <script async src="https://cdn.ampproject.org/v0.js">
+    </script>
+
+    <title>Hello AMP world
+    </title>
+
     <link rel="canonical" href="index.html">
+
     <link rel="stylesheet" href="https://use.typekit.net/cfr2aiy.css">
+
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+    </style>
+    <noscript>
+        <style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
+        </style>
+    </noscript>
+
 
     <style amp-custom>
 
+        /*
+            Every widget section should be a
+            <div class="section">...
+            </div>
+                        By default, section is full-page width
+                        If you want limited width for body text, etc, use
+            <div class="section contained-width">...
+            </div>
+        */
+
+        /* START COMMON! */
+        .contained-width {
+            max-width: 700px;
+            margin: auto;
+        }
+
         /* typography */
         body {
-            font-family: "ingra",sans-serif;
-            font-weight: 100;
-            font-size: 18px;
+            font-family: "kepler-std-display",serif;
+            font-weight: 300;
+            font-size: 20px;
+            letter-spacing: 0.777777px;
         }
-        h1, h2, h3, h4, h5 {  font-family: acta-display, serif;  font-style: normal;  font-weight: 500;}
-        h1, h2 {  -webkit-margin-before: 0.3em; -webkit-margin-after: 0.3em;}
-        h3, h4, h5, p, span {  -webkit-margin-before: 0.25em; -webkit-margin-after: 0.25em;}
+        h4 { font-size: 20px;}
+        h1, h2, h3, h4, h5 { font-family: "kepler-std-display",serif;  font-style: normal;  font-weight: 500;}
+        h1, h2 {  -webkit-margin-before: 0.15em; -webkit-margin-after: 0.15em;}
+        h3, h4, h5, p, span {  -webkit-margin-before: 0.1em; -webkit-margin-after: 0.1em;}
         p {
-            -webkit-margin-before: 0;-webkit-margin-after: 0;-webkit-margin-start: 0;-webkit-margin-end: 0;
+            -webkit-margin-before: 0;
+            -webkit-margin-after: 20px;
+            -webkit-margin-start: 0;
+            -webkit-margin-end: 0;
+            line-height: 26px;
         }
         @media screen and (min-width: 1375px) {
             h1 { font-size: 55px; }
-            h2 { font-size: calc(55px * 0.85);}
-            h3 { font-size: calc(55px * 0.75); color: #656565;}
-            h4 { font-size: calc(55px * 0.6)}
+            h2 { font-size: calc(55px * 0.75);}
+            h3 { font-size: calc(55px * 0.6); color: #656565;}
+            h4 { font-size: calc(55px * 0.5)}
         }
         @media screen and (min-width: 1163px) {
-            body { font-size: 20px;}
+            body { font-size: 22px; }
+            p {line-height: 28px;}
+            h4 {font-size: 22px;}
         }
         @media screen and (max-width: 1162px) and (min-width: 1050px) {
-            body { font-size: calc(4vw * 0.43);}
+            body { font-size: calc((4vw * 0.43) + 2px);}
+            p {line-height: 28px;}
         }
         @media screen and (max-width: 1375px) and (min-width: 1050px) {
             h1 { font-size: 4vw; }
-            h2 { font-size: calc(4vw * 0.85);}
-            h3 { font-size: calc(4vw * 0.75); color: #656565;}
-            h4 { font-size: calc(4vw * 0.6);}
+            h2 { font-size: calc(4vw * 0.75);}
+            h3 { font-size: calc(4vw * 0.6); color: #656565;}
         }
         @media screen and (max-width: 1049px) and (min-width: 600px) {
             h1 { font-size: 42px; }
-            h2 { font-size: calc(42px * 0.85);}
-            h3 { font-size: calc(42px * 0.75); color: #656565;}
-            h4 { font-size: calc(42px * 0.6);}
+            h2 { font-size: calc(42px * 0.75);}
+            h3 { font-size: calc(42px * 0.6); color: #656565;}
         }
         @media screen and (max-width: 599px) {
             h1 { font-size: 36px; }
-            h2 { font-size: calc(36px * 0.85);}
-            h3 { font-size: calc(36px * 0.75); color: #656565;}
-            h4 { font-size: calc(36px * 0.6);}
+            h2 { font-size: calc(36px * 0.75);}
+            h3 { font-size: calc(36px * 0.6); color: #656565;}
         }
 
         @media screen and (min-width: 601px) {
-            .container, .k-logo {
-                margin-left: 50px;
-                margin-right: 50px;
+            .container > *:not(ol), .k-logo, .header-text {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+            ol, ul, blockquote {
+                padding-left: calc(50px + 40px) !important;
+                padding-right: calc(50px + 40px) !important;
             }
         }
         @media screen and (max-width: 600px) {
-            .container, .k-logo {
-                margin-left: 20px;
-                margin-right: 20px;
+            .container > *, .k-logo, .header-text {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            ol, ul, blockquote {
+                padding-left: calc(20px + 20px) !important;
+                padding-right: calc(20px + 20px) !important;
             }
         }
+
+        blockquote {
+            border-left: 2px solid #1AA45D;
+            background-color: #f3f3f3;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            max-width: 700px;
+            margin: 40px auto;
+        }
+        h2 + h3 {
+            margin-top: 10px;
+        }
+
+        .centered-text-widget, blockquote {
+            color: #131313;
+            font-size: 24px;
+            font-weight: 200;
+            font-family: "kepler-std-display",serif;
+            letter-spacing: 1px;
+            line-height: 36px;
+            text-align: center;
+        }
+
+        .centered-text-widget {
+            margin: auto;
+            max-width: 700px;
+            padding: 0 20px;
+        }
+
+        ul > li:not(first-of-type), ol > li:not(first-of-type) {
+            margin-top: 10px;
+        }
+
+        /* end typography */
+
+
+        /* tables */
+        table {
+            border-collapse: collapse;
+        }
+        table td {
+            padding-left: 10px;
+            padding-right: 10px;
+            text-align: center;
+        }
+        tbody tr:first-of-type {
+            border-bottom: 1px solid #1AA45D;
+        }
+        tbody tr:nth-of-type(1) > td, tbody tr:nth-of-type(2) > td {
+            padding-top: 30px;
+        }
+        /* end tables */
 
         /* responsive header image */
         .header-img img.i-amphtml-fill-content {
@@ -75,16 +176,26 @@
             transform: translateX(-50%);
         }
 
-        .container {
-            margin-top: 50px;
-            margin-bottom: 50px;
+        .section:first-of-type {
+            padding-top: 60px;
         }
 
+        .section {
+            padding-bottom: 60px
+        }
+
+        /* END COMMON! */
+
+
     </style>
+
 </head>
+
 <body style="background-color: #fafafa;">
 
+
 <div class="header" style="position:relative; min-height: 200px;">
+
     <amp-img class="k-logo" src="https://s3.us-east-2.amazonaws.com/evanstonavenue-secure-us/Kleingers-capital-muted.svg"
              width="95" height="95" layout="responsive"
              style="margin-top: 20px;
@@ -95,27 +206,2450 @@
                  width: 15%;
                  height: auto;
                  z-index: 10;">
+
     </amp-img>
+
     <amp-img class='header-img' src='https://s3.us-east-2.amazonaws.com/evanstonavenue-secure-us/stock-header.jpg'
              width="1500" height="621" layout="responsive" style="min-height: 400px;">
+
         <h1 class="header-title" style="z-index: 11;color: white;position: absolute;
                                         top: 50%;
                                         left: 50%;
                                         transform: translate(-50%,-50%);
                                         text-align: center;">
-            10 Simple Steps to Investing in Cryptocurrency</h1>
+            The Case for Cryptocurrency: And Why There's No Stopping It
+        </h1>
+
     </amp-img>
-    <!-- <amp-img src="https://s3.us-east-2.amazonaws.com/evanstonavenue-secure-us/growth.web.png"
-              width="1500" height="621" layout="responsive"
-              style="margin-top: 20px; margin-bottom: 20px;"></amp-img>-->
+
+    <!--
+    <amp-img src="https://s3.us-east-2.amazonaws.com/evanstonavenue-secure-us/growth.web.png"
+                  width="1500" height="621" layout="responsive"
+                  style="margin-top: 20px; margin-bottom: 20px;">
+    </amp-img>-->
+
 </div>
 
+
 <div class="container">
-    <h1>Kleingers Capital</h1>
-    <h2>Kleingers Capital</h2>
-    <h3>Kleingers Capital</h3>
-    <h4>Kleingers Capital</h4>
-    <p><b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+    <div class="section contained-width">
+
+
+        <p class="c1">
+
+<span>
+I hold the following conviction without any shadow of a doubt:
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c24 c20">
+
+</span>
+
+        </p>
+
+        <blockquote>
+            In the next 20 years, cryptocurrencies will take over the world of money and finance as we know it.
+        </blockquote>
+
+        <h2 class="c27" id="h.6d4cv9k4hsf3">
+
+<span class="c6">
+A View of Two Worlds
+</span>
+
+        </h2>
+
+        <p class="c1">
+
+<span class="c2">
+“Everyone’s an expert these days, huh? You throw a cryptocurrency dart, make a few bucks, and suddenly you change your LinkedIn title to ‘Investment Advisor’”.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+You’ve got to hand it to capitalism. People without any financial training are trying to
+</span>
+
+            <span class="c20">
+sell
+</span>
+
+            <span class="c2">
+&nbsp;their investment advice by offering their single success story as a reference.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+So why might anyone have an interest in my take? In short,
+</span>
+
+            <span class="c2">
+it comes down to the unique position I’ve stumbled into.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+I live my day-to-day in two vastly different investment worlds. The financial world of today, and the blockchain-based world of tomorrow.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+I’m a software engineer who has volunteered my work to several well-known cryptocurrency efforts. I dive into cryptocurrency source code on a regular basis.
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+[
+</span>
+
+            <span class="c28">
+
+<a class="c14" href="https://www.google.com/url?q=https://litecoin-foundation.org/about-us/&amp;sa=D&amp;ust=1518461048754000&amp;usg=AFQjCNFFqvztfV4N_15gnt9fdWHRFYw8NQ">
+https://litecoin-foundation.org/about-us/
+</a>
+
+</span>
+
+            <span>
+]
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+I also happen to work for one of the most widely trusted independent investment research companies in the world. You know, the type of investment company that gives you old-school advice like telling you to invest in a low-cost index-tracking ETF and forget about it. (That’s good advice, by the way).
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+Given the recent mainstream visibility, I’ve had a surprising number of friends and acquaintances contact me with cryptocurrency questions. Ideally, I’d love for this post to be a starting point for those truly wanting to research, learn, and give back to the community.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+With the vast amount of misinformation out there, I’d also highly recommend this post to those looking to invest in cryptocurrencies and blockchain technologies.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+-- &nbsp;Picture of ridiculous pumping tweets --
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+Rather than build a readership using sensationalized predictions, or grow a Twitter following through “coin giveaways every hour!”, I’ll take the road less traveled.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+My aim is to provide original, helpful content based on technical expertise, source code, network data, and whitepaper analysis.
+</span>
+
+        </p>
+
+        <h2 class="c27" id="h.7436gtabg55f">
+
+<span class="c6">
+What is Cryptocurrency?
+</span>
+
+        </h2>
+
+        <p class="c1">
+
+<span class="c2">
+Cryptocurrency is simply digital money.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+It also happens to be based on blockchain technology - the ins and outs of which will be covered in other blog posts.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+The short version?
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c12">
+Cryptocurrency
+</span>
+
+            <span class="c12">
+allows any person on this earth to send money to any other person. Without a bank.
+</span>
+
+            <span class="c18 c12">
+Rather than relying on the trust of a company, lawyer, or piece of legislation to honor an account or transaction, cryptocurrency is “trust-less”. The need for trust is simply replaced by math and computer science.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+It’s incredible if you think about it.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+Think of all the money invested in the current financial industry - from banking salaries, to lawyers, to e-commerce websites charging ~2.9% per transaction (modern cryptocurrencies offer ~.05 cents flat, or better), to the brick and mortar infrastructure of financial institutions.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+All of it - potentially replaced by a smarter,
+</span>
+
+            <span class="c20">
+way
+</span>
+
+            <span class="c2">
+more efficient tool.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+No doubt, we’re in the earliest stage of cryptocurrency. It may take five years. It may take ten or more. But the existing financial inefficiencies are losing ground. And, as proven time and time again throughout history, the superior technology eventually wins.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+So what is cryptocurrency?
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <ul class="c3 lst-kix_bqr8h2fikfjw-0 start">
+
+            <li class="c1 c16">
+
+<span class="c2">
+Cryptocurrency is digital money.
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+It does not require a bank.
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+It cannot be inflated.
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+It is not subject to a government or central power changing the rules halfway through the game.
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+It democratizes money by limiting the control of the privileged few (banks) over the many.
+</span>
+
+            </li>
+
+        </ul>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c12">
+A global exchange of wealth - the likes of which the world has never seen - is in the works. And as you can imagine, the privileged few won’t be giving up control without a fight.
+</span>
+
+        </p>
+
+        <h2 class="c27" id="h.blfhgxwgobtf">
+
+<span>
+Dealing with
+</span>
+
+            <span class="c6">
+Critics
+</span>
+
+        </h2>
+
+        <p class="c1">
+
+<span class="c2">
+At some point, you’ve sat around the dinner table, coffee bar, water cooler, etc, and heard from the cryptocurrency critics.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+Rather than go through this post with predefined bias, why not confront the two most commonly repeated sound bites upfront?
+</span>
+
+        </p>
+
+        <h3 class="c17" id="h.1czecgyhwta9">
+
+<span class="c23">
+Cryptocurrency Has No Inherent Value
+</span>
+
+        </h3>
+
+        <p class="c1">
+
+<span class="c2">
+The number one criticism. And you know what? I agree. Cryptocurrency has zero inherent value.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+And neither does the US dollar, which drives the world economy.
+</span>
+
+        </p>
+
+        <h4 class="c22" id="h.41q2hi1liwhh">
+
+<span>
+The Need for Currency
+</span>
+
+        </h4>
+
+        <p class="c1">
+
+<span>
+Currency was quite literally
+</span>
+
+            <span class="c20">
+designed
+</span>
+
+            <span class="c2">
+&nbsp;for the purpose of abstracting away inherent value.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+Why? Because it’s extremely inefficient to carry around ounces of gold, barrels of oil, horses, or other items people may or may not value.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+It’s not like the world hasn’t tried it. Many economic models throughout history consisted of bartering for inherently valued goods. And all of those economies were extremely inefficient.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+Say, for example, you were a blacksmith and needed a horse. Unfortunately, the person selling a horse doesn’t need anything made of metal and happens to value gold. You then began tracking down the person holding gold. As it turns out, the person holding gold only values food for feeding a family. You see where this is going…
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+If someone wants to make the “inherent value” argument, that’s certainly their prerogative.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+But the underlying notion is that we should be blacksmiths bartering for horses.
+</span>
+
+        </p>
+
+        <h4 class="c22" id="h.1gn6uorc1cg4">
+
+<span class="c25">
+Currency Should Be Backed by Something of Inherent Value
+</span>
+
+        </h4>
+
+        <p class="c1">
+
+<span>
+“Of course currencies are necessary. But they have to be backed by
+</span>
+
+            <span class="c20">
+something
+</span>
+
+            <span class="c2">
+.”
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+So the argument is no longer against the idea of currency as a whole. Rather, it's an argument that a currency needs to be backed by something of value.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+I would argue... Is there a difference?
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+By admitting a need for currency in the first place, you're acknowledging that everyone values assets differently. In other words, for a backed currency to mean anything, everyone would need to agree on a single “valuable” asset.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+The discourse inevitably goes down the following path:
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+Me: “There is no single asset that everyone values, so a currency backed by an asset means nothing.”
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+Person: “That's not true. What about gold? If all electricity, technology, or government control was to disappear, you'd still have gold. Gold is gold. You can touch it. You can make jewelry with it.”
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+It's not that I don't understand the thought process. The problem is this…
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+Me: “I don't intrinsically value gold. I value real estate, food for my family, tech gadgets, etc. In fact, even my wedding ring isn't made from gold. You're telling me I would need to, on a monthly basis, hand over an amount of gold equal to a mortgage to buy a house? Even though gold holds no value to me?”
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+Person: “But people value gold. You can trade it for anything you
+</span>
+
+            <span class="c20">
+do
+</span>
+
+            <span class="c2">
+&nbsp;value and it will be accepted… because it's gold.”
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+In other words, it's not about the intrinsic value of the metal. It's about knowing that people will accept it for what you
+</span>
+
+            <span class="c20">
+do
+</span>
+
+            <span class="c2">
+&nbsp;value.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c12">
+In trying to make the case for “inherent value”, we've just described a value through abstraction - or rather, a currency.
+</span>
+
+        </p>
+
+        <h4 class="c22" id="h.1c7pqo412r1n">
+
+<span class="c25">
+The US Dollar
+</span>
+
+        </h4>
+
+        <p class="c1">
+
+<span class="c2">
+I hate to break it to you, but the US dollar isn’t backed by any intrinsically valuable asset either.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+“Federal Reserve notes are not redeemable in gold, silver or any other commodity, and receive no backing by anything This has been the case since 1933. The notes have no value for themselves, but for what they will buy. In another sense, because they are legal tender, Federal Reserve notes are "backed" by all the goods and services in the economy.” - United States Treasury
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+[
+</span>
+
+            <span class="c28">
+
+<a class="c14" href="https://www.google.com/url?q=https://www.treasury.gov/resource-center/faqs/Currency/Pages/legal-tender.aspx&amp;sa=D&amp;ust=1518461048762000&amp;usg=AFQjCNHk5TpVMBw0P8SD6g4Vxcm_cpsz0A">
+https://www.treasury.gov/resource-center/faqs/Currency/Pages/legal-tender.aspx
+</a>
+
+</span>
+
+            <span class="c2">
+]
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+In other words, the US dollar is backed by nothing more than the trust that others in the economy will accept it for goods and services.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+We’re already trusting an abstraction. Cryptocurrencies just happen to offer a more efficient abstraction that cannot be tampered with.
+</span>
+
+        </p>
+
+        <h3 class="c17" id="h.53zcx2fsunh1">
+
+<span class="c23">
+Cryptocurrency is a Ponzi Scheme
+</span>
+
+        </h3>
+
+        <p class="c1">
+
+<span class="c2">
+As an investor residing in the US, there’s one definition of a ponzi scheme that I care about. The SEC defines a ponzi scheme as follows:
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+“A Ponzi scheme is an investment fraud that involves the payment of purported returns to existing investors from funds contributed by new investors. Ponzi scheme organizers often solicit new investors by promising to invest funds in opportunities claimed to generate high returns with little or no risk.” -United States Securities and Exchange Commision”
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+[
+</span>
+
+            <span class="c28">
+
+<a class="c14" href="https://www.google.com/url?q=https://www.sec.gov/fast-answers/answersponzihtm.html%23PonziWhatIs&amp;sa=D&amp;ust=1518461048764000&amp;usg=AFQjCNGozgZ31DITE-ZimcBEXCM9l1mH5Q">
+https://www.sec.gov/fast-answers/answersponzihtm.html#PonziWhatIs
+</a>
+
+</span>
+
+            <span>
+]
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+Ponzi schemes are no more prevalent in the cryptocurrency community than any other business community.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+The vast majority of cryptocurrency projects go nowhere near “promising to invest funds in opportunities claimed to generate high returns with
+</span>
+
+            <span class="c20">
+little or no risk
+</span>
+
+            <span class="c2">
+.” In fact, leaders of the most successful cryptocurrency projects have routinely warned that investing in cryptocurrency is highly volatile and carries extremely high risk.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+In other words, unless the cryptocurrency community is attracting new investors by claiming there is “little or no risk”, it cannot possibly be considered a ponzi scheme.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c12">
+To insist cryptocurrency is a ponzi scheme is to dole out the “ponzi” label to
+</span>
+
+            <span class="c12">
+any
+</span>
+
+            <span class="c20 c12">
+&nbsp;
+</span>
+
+            <span class="c12">
+system
+</span>
+
+            <span class="c18 c12">
+&nbsp;with an aspect of marketing and investment opportunity.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+To use that broad of a stroke, you’d be forced to accept the following examples as deserving of the “ponzi scheme” label
+</span>
+
+            <span>
+:
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <ul class="c3 lst-kix_agc9odbp49ol-0 start">
+
+            <li class="c1 c16">
+
+<span class="c2">
+Investing in Stocks and ETFs
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+Owning equity in any company - including private equity of a company you happen to work for
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+Starting a company and accepting any type of capital investment
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+Buying event tickets during the initial sale and selling at a higher price on reseller websites
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+Investing in the US dollar (we’ll return to this)
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+Investing in Real estate
+</span>
+
+            </li>
+
+        </ul>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+To be fair, real estate actually
+</span>
+
+            <span class="c20">
+was
+</span>
+
+            <span>
+a ponzi scheme leading up to 2008
+</span>
+
+            <span>
+,
+</span>
+
+            <span>
+&nbsp;
+</span>
+
+            <span>
+as p
+</span>
+
+            <span class="c2">
+eople bought houses they couldn’t afford at “little or no risk” - a false comfort provided by central banks and mortgage brokers. In theory, you could always sell your house to the next buyer at a better price. So the conventional wisdom suggested. Homes always appreciated in value.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+Until they didn’t.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+Few media outlets label actual ponzi schemes as such, and yet, articles continuously apply the label to the
+</span>
+
+            <span class="c20">
+entire
+</span>
+
+            <span class="c2">
+&nbsp;cryptocurrency space. The “ponzi scheme” label is nothing more than a mechanism for banks and institutional money to play scare tactics against their competition.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+As they say, talk is cheap.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c12 c18">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c12">
+Any investor can now trade futures contracts to short
+</span>
+
+            <span class="c12">
+(bet against) Bitcoin
+</span>
+
+            <span class="c12">
+. So, every time you hear someone
+</span>
+
+            <span class="c12">
+,
+</span>
+
+            <span class="c12">
+with such adamant conviction
+</span>
+
+            <span class="c12">
+,
+</span>
+
+            <span class="c18 c12">
+&nbsp;insist that Bitcoin is a ponzi scheme, calmly ask, “So what’s your short position?”
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+To be clear, this is not my way of predicting Bitcoin will be the cryptocurrency that will succeed into the future. And I am not suggesting money cannot be made by shorting Bitcoin.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+I’m simply pointing out that:
+</span>
+
+        </p>
+
+        <ol class="c3 lst-kix_jvddqc2f87o-0 start" start="1">
+
+            <li class="c1 c16">
+
+<span class="c2">
+There are an abundance of “ponzi scheme” speculators.
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+Few, if any, hold the actual conviction to short the “obvious” ponzi scheme.
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+It’s not a great idea to take investment advice from those unwilling to invest in their own conviction.
+</span>
+
+            </li>
+
+        </ol>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+If you are reading this post and are still somehow 100% convinced that the entire space is a “ponzi scheme”, I’d be more than happy to buy call options from you on the legitimate cryptocurrency projects and let the results speak for themselves.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+Seriously though, contact me and we'll create a market. I have no moral aversion to taking money from those that haven't done their due diligence.
+</span>
+
+        </p>
+
+        <h2 class="c27" id="h.pjwfjk8vbhvd">
+
+<span class="c6">
+What is the Potential of Cryptocurrency?
+</span>
+
+        </h2>
+
+        <h3 class="c17" id="h.sewtj21unddg">
+
+<span class="c23">
+Lack of Inflation
+</span>
+
+        </h3>
+
+        <p class="c1">
+
+<span class="c2">
+Did you know:
+</span>
+
+        </p>
+
+        <ul class="c3 lst-kix_wgwnu0o5clbn-0 start">
+
+            <li class="c1 c16">
+
+<span class="c2">
+When currency inflates, anyone holding that currency is being stolen from?
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+On average, the US dollar inflates ~3% per year?
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+Inflation compounds year over year?
+</span>
+
+            </li>
+
+        </ul>
+
+        <h4 class="c22" id="h.1c090qzedz6u">
+
+<span class="c25">
+Why Inflation is an Issue
+</span>
+
+        </h4>
+
+        <p class="c1">
+
+<span class="c2">
+Consider a family that has properly budgeted enough money to buy a full cart of groceries each week. After five years in the current inflationary system, the family could only fill their cart with 88% of what they once could. After ten years, the family could only take home 75% of what they once could. After 20 years, they’d be taking home just a little more than half.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+This is the current system some accept.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+In the case of the United States, a central authority (i.e. the government) can inject money into the economy out of thin air through
+</span>
+
+            <span class="c28">
+
+<a class="c14" href="https://www.google.com/url?q=https://www.investopedia.com/terms/q/quantitative-easing.asp&amp;sa=D&amp;ust=1518461048770000&amp;usg=AFQjCNFrxcqtv_G8uRuajj3PG3L2qK8KcQ">
+quantitative easing
+</a>
+
+</span>
+
+            <span class="c2">
+, or simply printing money. In either case, the end result is this:
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <ul class="c3 lst-kix_d90kw175bdtz-0 start">
+
+            <li class="c1 c16">
+
+<span class="c2">
+Value is “stolen” from those who had saved money.
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+Those taking on debt are rewarded.
+</span>
+
+            </li>
+
+        </ul>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+Injecting money into the economy means you’ve simply created demand for actual value (labor and services) without adding any supply of such
+</span>
+
+            <span class="c20">
+actual
+</span>
+
+            <span class="c2">
+value (labor and services). Through classic supply and demand, prices of labor and services - and by extension, goods - rise when the US dollar is inflated.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+Those holding US dollars can no longer be what they used to be able to buy, value has essentially been stolen from them. Families buying groceries did not make the decision to bailout AIG or Goldman Sachs after the 2008 financial crisis. And yet, they paid for it as the dollar inflated.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+There are those in favor of centrally-controlled currency and “controlled” inflation - a rabbit hole that leads into the political realm. However:
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c18 c12">
+One cannot argue for inflation without accepting the underlying premise that, “It’s OK for a central authority to change the rules halfway through the game, if it’s ‘for your own benefit’.”
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+History is littered with examples of central governments changing the rules to financial systems “halfway through the game.”
+</span>
+
+            <span>
+Take a guess at h
+</span>
+
+            <span class="c2">
+ow many of those instances ended in the benefit of the general public’s hard-earned money.
+</span>
+
+        </p>
+
+        <h4 class="c22" id="h.rpgslin3ti17">
+
+<span class="c25">
+Cryptocurrencies Don’t Inflate
+</span>
+
+        </h4>
+
+        <p class="c1">
+
+<span class="c2">
+Enter cryptocurrency. For most cryptocurrencies (true cryptocurrencies), the maximum amount of coins is algorithmically set and cannot be changed.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+The only way to change or inflate the currency would be to change the algorithm in the source code. Changing source code to inflate the coin would require a hard fork, which means a new coin would be created. In such a scenario, the original currency would still exist - unaltered and without inflation.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+For example, Litecoin was one of the earliest hard forks of Bitcoin. Despite source code changes made to increase the maximum number of coins (4x), Bitcoin still exists uninflated. As does the community willing to support it.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+In the future world of cryptocurrency, you simply never lose ~3% in earning power compounded year after year. Viewed another way, if you’re the type of person that puts money into a low-cost ETF, you’d essentially earn an extra 3% per year with zero risk. &nbsp;
+</span>
+
+        </p>
+
+        <h3 class="c17" id="h.3d1qiv5m995f">
+
+<span class="c23">
+Decentralization
+</span>
+
+        </h3>
+
+        <p class="c1">
+
+<span class="c2">
+Decentralization is the most important aspect of cryptocurrency. If it weren’t for decentralization, cryptocurrency wouldn’t differ from other digital payment methods like, say, PayPal.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+If you had to choose just one argument for cryptocurrency, it’s this:
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c18 c12">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c12">
+Currency is built entirely on trust. If you trust fiat currency (like the US dollar) you are trusting government, the human ability to refrain from self-interest, and human error. If you trust cryptocurrencies, you are trusting math and computer science.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+I don’t know about you, but in the context of honest and transparent processing of money and payments, I’m taking math and computer science over fallible humans.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+So why is the technology behind cryptocurrency such a revelation? Why hasn’t it been available until now?
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+The answer is that it’s quite complex to create a system that allows the sharing of extremely sensitive information in a trustless manner.
+</span>
+
+        </p>
+
+        <h4 class="c22" id="h.qtv64eemidgd">
+
+<span class="c25">
+The Byzantine Generals Problem
+</span>
+
+        </h4>
+
+        <p class="c1">
+
+<span class="c2">
+The Byzantine Generals Problem is an agreement problem pondered by academics of various fields since the early 1980s. It’s the problem that has been solved by blockchain - allowing cryptocurrencies to replace human intermediaries.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+The Byzantine Generals Problem describes a situation where a group of generals are approaching battle and must agree upon a battle plan. They can only communicate with one another through messengers, of which there’s no guarantee of successful delivery. Additionally, there’s the possibility of disloyal generals sending messages that attempt to compromise the mission, or promote their own self-interest.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+A successful solution would allow the loyal generals to reach a consensus despite unstable and malicious messaging.
+</span>
+
+        </p>
+
+        <h4 class="c22" id="h.cagbgekbv20m">
+
+<span class="c25">
+The Blockchain Solution
+</span>
+
+        </h4>
+
+        <p class="c1">
+
+<span class="c2">
+The Byzantine Generals Problem is the same problem a decentralized currency like Bitcoin (or any blockchain) sets out to solve.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+With any digital currency, how are consumers to trust that their money is actually transferred from one location to another? How does the system prevent from failing when transactions are sent from an unreliable device or internet connection? How does the system deal with hackers sending fake transactions?
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+In a centralized system, a bank or central authority is (ideally) held responsible for all of the above risks. That means they’re spending a
+</span>
+
+            <span class="c20">
+ton
+</span>
+
+            <span class="c2">
+of time and resources to ultimately solve the Byzantine Generals Problem. As with any human solution, it’s inefficient and subject to appeals and audits - which opens the door for the even less efficient legal system.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+Blockchain powerfully solves the problem using an algorithm. The algorithm is run by all of the computers on the network and virtually guarantees accurate and trustless consensus of sensitive information.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+That is decentralization.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+Benefits of decentralized currency include:
+</span>
+
+        </p>
+
+        <ul class="c3 lst-kix_zatlizjscanj-0 start">
+
+            <li class="c1 c16">
+
+<span class="c12">
+Diversification:
+</span>
+
+                <span class="c2">
+&nbsp;You do not need to worry about the stability of any one company or group of large companies.
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c12">
+Security:
+</span>
+
+                <span class="c2">
+There is no one company, bank, or government for hackers to target.
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+The use of currency cannot not be enforced upon people.
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c12">
+Lack of Manipulation:
+</span>
+
+                <span>
+The c
+</span>
+
+                <span class="c2">
+urrency cannot be inflated, deflated, or otherwise manipulated.
+</span>
+
+            </li>
+
+        </ul>
+
+        <h3 class="c17" id="h.ayoflo4b5twi">
+
+<span class="c23">
+Cost Savings
+</span>
+
+        </h3>
+
+        <p class="c1">
+
+<span class="c2">
+Maybe you don’t care to get into the details of who you’re actually trusting when you put money into a bank account. Or possibly, you don’t care to analyze inflation and how it may be lessening your spending power.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+Even if that’s the case, you should still be aware that cryptocurrency has the potential to drastically lower the fees you’re currently paying banks. By eliminating the middleman, cryptocurrencies also eliminate the following common fees among most banks:
+</span>
+
+        </p>
+
+        <ul class="c3 lst-kix_mw8do0s1d8o1-0 start">
+
+            <li class="c1 c16">
+
+<span class="c2">
+Checking Account Fee
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+Minimum Balance Fee
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+Overdraft Charges
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+Returned Deposit Fee
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+ATM Fee
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+Foreign Transaction Fee
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+Lost Card Fee
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+Inactivity Fee
+</span>
+
+            </li>
+
+            <li class="c1 c16">
+
+<span class="c2">
+Account Closing Fee
+</span>
+
+            </li>
+
+        </ul>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+In the cryptocurrency world, you are never charged any of these fees.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+Once you’ve experienced a banking system without the “middle man”, you’ll instantly see the current system through
+</span>
+
+            <span>
+a different lense, and realize just how much you used to pay to hold and transfer your
+</span>
+
+            <span class="c20">
+own
+</span>
+
+            <span>
+money.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+&nbsp;while your money is sitting in a wallet, which is the equivalent of a bank account. If you want to send your money anywhere, including internationally, the cost to do so is much more affordable. In fact, some of the leading cryptocurrencies charge under a cent per transaction.
+</span>
+
+        </p>
+
+        <h3 class="c17" id="h.opuz2k1ejigp">
+
+<span class="c23">
+Banking for Everyone
+</span>
+
+        </h3>
+
+        <p class="c1">
+
+<span class="c2">
+Many people in various areas of the world do not have access to banking simply because they cannot afford to pay for it. Most banks simply don’t see it as in their best interest to open a large number of modest accounts. The overhead isn’t worth the limited opportunity provided by those small accounts.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+But what if there was no overhead?
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c12">
+The ability to provide banking to
+</span>
+
+            <span class="c20 c12">
+everyone
+</span>
+
+            <span class="c18 c12">
+&nbsp;is one of the most promising opportunities of cryptocurrency. Cryptocurrency networks do not care what a transaction is “worth”.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+How can this be?
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+The only existing overhead in cryptocurrency is the ability for the network to record transactions to the single source of truth known as the ledger. The computing hash power required for the network to arrive at consensus is
+</span>
+
+            <span class="c20">
+the exact same
+</span>
+
+            <span class="c2">
+&nbsp;whether the transaction itself is worth $100 or $100 million.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+Imagine you are an immigrant having recently arrived in, say, the United States and you wanted to send money back to your family. The following table shows what you’d be likely to pay:
+</span>
+
+        </p>
+
+        <h4 class="c43" id="h.5046yvyjy821">
+
+<span class="c25">
+Wire Transfer Fees at Top Banks
+</span>
+
+        </h4>
+
+        <a id="t.c13e17a052a377507fbd964b81adf7e2022a0bc4">
+
+        </a>
+
+        <a id="t.0">
+
+        </a>
+
+        <table class="c38"><tbody><tr class="c29"><td class="c34" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7 c19">Banks</span></p></td><td class="c40" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">Domestic Outgoing</span></p></td><td class="c16" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">Foreign Outgoing</span></p></td></tr><tr class="c23"><td class="c13" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">Bank of America</span></p></td><td class="c17" colspan="1" rowspan="1"><p class="c3"><span class="c11">$30</span></p></td><td class="c15" colspan="1" rowspan="1"><p class="c3"><span class="c11">$45</span></p></td></tr><tr class="c12"><td class="c30" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">Chase</span></p></td><td class="c26" colspan="1" rowspan="1"><p class="c3"><span class="c11">$35</span></p></td><td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c11">$50</span></p></td></tr><tr class="c12"><td class="c13" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">Wells Fargo</span></p></td><td class="c17" colspan="1" rowspan="1"><p class="c3"><span class="c11">$30</span></p></td><td class="c15" colspan="1" rowspan="1"><p class="c3"><span class="c11">$40</span></p></td></tr><tr class="c12"><td class="c30" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">Citibank</span></p></td><td class="c26" colspan="1" rowspan="1"><p class="c3"><span class="c11">$35</span></p></td><td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c11">$45</span></p></td></tr><tr class="c12"><td class="c13" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">U.S. Bank</span></p></td><td class="c17" colspan="1" rowspan="1"><p class="c3"><span class="c11">$30</span></p></td><td class="c15" colspan="1" rowspan="1"><p class="c3"><span class="c11">$50</span></p></td></tr><tr class="c12"><td class="c30" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">Capital One</span></p></td><td class="c26" colspan="1" rowspan="1"><p class="c3"><span class="c11">$25</span></p></td><td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c11">$50</span></p></td></tr><tr class="c12"><td class="c13" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">PNC Bank</span></p></td><td class="c17" colspan="1" rowspan="1"><p class="c3"><span class="c11">$30</span></p></td><td class="c15" colspan="1" rowspan="1"><p class="c3"><span class="c11">$45</span></p></td></tr><tr class="c12"><td class="c30" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">TD Bank</span></p></td><td class="c26" colspan="1" rowspan="1"><p class="c3"><span class="c11">$25</span></p></td><td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c11">$40</span></p></td></tr><tr class="c12"><td class="c13" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">BB&amp;T</span></p></td><td class="c17" colspan="1" rowspan="1"><p class="c3"><span class="c11">$30</span></p></td><td class="c15" colspan="1" rowspan="1"><p class="c3"><span class="c11">$65</span></p></td></tr><tr class="c12"><td class="c30" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">SunTrust Bank</span></p></td><td class="c26" colspan="1" rowspan="1"><p class="c3"><span class="c11">$25</span></p></td><td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c11">$50</span></p></td></tr><tr class="c12"><td class="c13" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">Citizens Bank</span></p></td><td class="c17" colspan="1" rowspan="1"><p class="c3"><span class="c11">$15</span></p></td><td class="c15" colspan="1" rowspan="1"><p class="c3"><span class="c11">$30</span></p></td></tr><tr class="c23"><td class="c30" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">Fifth Third Bank</span></p></td><td class="c26" colspan="1" rowspan="1"><p class="c3"><span class="c11">$15</span></p></td><td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c11">$15</span></p></td></tr><tr class="c12"><td class="c13" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">Regions Bank</span></p></td><td class="c17" colspan="1" rowspan="1"><p class="c3"><span class="c11">$25</span></p></td><td class="c15" colspan="1" rowspan="1"><p class="c3"><span class="c11">$45</span></p></td></tr><tr class="c12"><td class="c30" colspan="1" rowspan="1"><p class="c3"><span class="c7 c11">M&amp;T Bank</span></p></td><td class="c26" colspan="1" rowspan="1"><p class="c3"><span class="c11">$32</span></p></td><td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c11">$75</span></p></td></tr><tr class="c23"><td class="c13" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">BBVA Compass</span></p></td><td class="c17" colspan="1" rowspan="1"><p class="c3"><span class="c11">$25</span></p></td><td class="c15" colspan="1" rowspan="1"><p class="c3"><span class="c11">$45</span></p></td></tr><tr class="c12"><td class="c30" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">Santander</span></p></td><td class="c26" colspan="1" rowspan="1"><p class="c3"><span class="c11">$25</span></p></td><td class="c8" colspan="1" rowspan="1"><p class="c3"><span class="c11">$40</span></p></td></tr><tr class="c23"><td class="c13" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">BMO Harris Bank</span></p></td><td class="c17" colspan="1" rowspan="1"><p class="c3"><span class="c11">$25</span></p></td><td class="c15" colspan="1" rowspan="1"><p class="c3"><span class="c11">$45</span></p></td></tr><tr class="c12"><td class="c39" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">AVERAGE</span></p></td><td class="c35" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">$27</span></p></td><td class="c33" colspan="1" rowspan="1"><p class="c3"><span class="c11 c7">$46</span></p></td></tr></tbody></table>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+[
+</span>
+
+            <span class="c28">
+
+<a class="c14" href="https://www.google.com/url?q=https://www.mybanktracker.com/news/wire-transfer-fee-comparison-top-10-us-banks&amp;sa=D&amp;ust=1518461048818000&amp;usg=AFQjCNGsCo1ZEQIfcYmuYUPTZhopOOfspA">
+https://www.mybanktracker.com/news/wire-transfer-fee-comparison-top-10-us-banks
+</a>
+
+</span>
+
+            <span class="c2">
+]
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c12">
+In our current banking system, the average foreign outgoing transfer fee is $46. Ripple, the cryptocurrency for foreign settlement, has an average transaction fee of just $0.015.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+When your banking mechanism doesn’t require owning high rise buildings, employing thousands of banking professionals, staffing or outsourcing a legal team, purchasing printing and stationery, providing security and auditing, or insurance expenditures... you can provide banking to anyone.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+You might be thinking, “That’s great. Notify me in a few years when it’s more than some idea.” It already is, as are the other top coins. They can be used right now.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+Most importantly, these banking mechanisms can be used by
+</span>
+
+            <span class="c20">
+anyone, anywhere.
+</span>
+
+        </p>
+
+        <h2 class="c27" id="h.37viuoio946a">
+
+<span class="c6">
+Conclusion
+</span>
+
+        </h2>
+
+        <p class="c1">
+
+<span class="c2">
+As with any true technological advance, there will be no stopping the blockchain and cryptocurrency movement.
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span class="c2">
+The only true measure of value in the world is what people are willing to accept for their labor. It’s no longer a question of whether the mainstream population will begin accepting cryptocurrency for their labor.
+</span>
+
+        </p>
+
+        <p class="c1 c5">
+
+<span class="c2">
+
+</span>
+
+        </p>
+
+        <p class="c1">
+
+<span>
+It’s simply a matter of when.
+</span>
+
+        </p>
+
+    </div>
+
 </div>
+
 </body>
+
 </html>

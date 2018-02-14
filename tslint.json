@@ -1,0 +1,32 @@
+{
+  "defaultSeverity": "warning",
+  "extends": [
+  ],
+  "jsRules": {},
+  "rules": {
+    "prefer-const": true,
+    "no-var-keyword": true,
+    "class-name": true,
+    "curly": [
+      true,
+      "ignore-same-line"
+    ],
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double",
+      "avoid-escape"
+    ],
+    "one-line": [
+      true,
+      "check-open-brace",
+      "check-whitespace"
+    ],
+    "semicolon": [
+      true,
+      "always",
+      "ignore-bound-class-methods"
+    ]
+  },
+  "rulesDirectory": []
+}
