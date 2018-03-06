@@ -1,0 +1,13 @@
+$primary-color: #651db5;
+$text-against-dark: white;
+
+// Forms
+$border-color: desaturate($primary-color, 100%);
+$border-hover-color: $primary-color;
+
+// Buttons
+$button-border-color: $primary-color;
+$button-background-color: $primary-color;
+$button-background-hover-color: $text-against-dark;
+$button-text-hover-color: $text-against-dark;
+$input-text-color: #46484c;
