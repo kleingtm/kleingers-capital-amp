@@ -4,7 +4,6 @@ const config = require('config');
 
 console.log(`\nEnvironment: ${process.env.NODE_ENV}\n`);
 console.log(`Environment config:\n ${JSON.stringify(config, null, 4)}\n`);
-console.log(`Webpack building...`);
 
 module.exports = {
     config: config,

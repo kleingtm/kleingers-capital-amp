@@ -1,13 +1,11 @@
-import * as Vue from 'vue';
-import * as App from './App.vue';
-import * as Router from './router/index.router.ts';
-
-Vue.config.productionTip = false;
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router/index.router.ts';
 
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
-    Router,
+    router,
     template: '<App/>',
     components: { App }
 });

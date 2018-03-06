@@ -1,4 +1,4 @@
-var pjson = require('./package.json');
+const pjson = require('./package.json');
 
 module.exports = {
     /**

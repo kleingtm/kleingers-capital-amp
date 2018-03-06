@@ -1,22 +1,16 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "dist",
     "pretty": true,
     "module": "commonjs",
     "target": "es5",
     "moduleResolution": "node",
+    "sourceRoot": "./src",
     "sourceMap": true,
-    "outDir": "dist",
-    "baseUrl": ".",
     "paths": {
-      "*": [
-        "node_modules/*",
-        "src/types/*"
-      ]
     }
   },
-  "include": [
-    "src/server/**/*"
-  ],
   "exclude": [
     "node_modules",
     "**/*.spec.ts"

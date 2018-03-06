@@ -1,34 +1,47 @@
-'use strict';
-
-import { RegExp } from 'core-js/library/web/timers';
+import * as express from 'express';
 // https://github.com/passport/express-4.x-local-example/blob/master/server.js
 import * as passport from 'passport';
 import * as bodyParser from 'body-parser';
 import { Strategy } from 'passport-local';
+import UsersModel from '../../db/models/users';
+
 // const Strategy = require('passport-local').Strategy;
 // const bodyParser = require('body-parser');
 
 export default class Session {
-    constructor(config) {
+
+    private app: express.Application;
+
+    constructor(config: any) {
         this.app = config.app;
 
         // Configure the local strategy for use by Passport.
         //
         // The local strategy require a `verify` function which receives the credentials
-        // (`username` and `password`) submitted by the user.  The function must verify
+        // (`email` and `password`) submitted by the user.  The function must verify
         // that the password is correct and then invoke `cb` with a user object, which
         // will be set at `req.user` in route handlers after authentication.
         passport.use(
             new Strategy(
                 {
-                    usernameField : 'username',
+                    usernameField : 'email',
                     passwordField : 'password',
                     passReqToCallback : true // allows us to pass back the entire request to the callback
                 },
-                function (req, username, password, cb) {
-                    let hey = "";
-                    return cb(null, username);
-                    // db.users.findByUsername(username, function(err, user) {
+                function (req, email, password, cb) {
+                    const hey = '';
+
+                    return UsersModel.findOne({
+                        where: {
+                            email: email,
+                            password: password
+                        }
+                    })
+                    .then(userFound => {
+                        cb(null, userFound.email)
+                    });
+
+                    // db.users.findByemail(email, function(err, user) {
                     // if (err) { return cb(err); }
                     // if (!user) { return cb(null, false); }
                     // if (user.password != password) { return cb(null, false); }
@@ -44,10 +57,10 @@ export default class Session {
         // typical implementation of this is as simple as supplying the user ID when
         // serializing, and querying the user record by ID from the database when
         // deserializing.
-        passport.serializeUser(function (username, cb) {
+        passport.serializeUser(function (email, cb) {
             // cb(null, user.id);
-            var lkajdf = "";
-            cb(null, username);
+            const lkajdf = '';
+            cb(null, email);
         });
 
         passport.deserializeUser(function (id, cb) {
@@ -55,8 +68,8 @@ export default class Session {
             //     if (err) { return cb(err); }
             //     cb(null, user);
             // });
-            cb(null, "tom");
-            //var aldkfj = "";
+            cb(null, 'tom');
+            //var aldkfj = '';
         });
 
         this.app.use(require('cookie-parser')());
@@ -72,7 +85,7 @@ export default class Session {
 
         // Lock everything down AFTER public routes are declared
         // only allow login, logout, and static files that AREN'T .html to be accessed when NOT logged in
-        this.app.use(/^\/(?!(login|logout|(.*\.(?!html)))).*/, require('connect-ensure-login').ensureLoggedIn());
+        // this.app.use(/^\/(?!(login|logout|(.*\.(?!html)))).*/, require('connect-ensure-login').ensureLoggedIn());
         this.app.post('/login', passport.authenticate('local', { failureRedirect: '/login', failureFlash: true}),
             (req, res) => {
                 res.json({
@@ -82,6 +95,6 @@ export default class Session {
         this.app.get('/logout', (req, res) => {
             req.logout();
             res.redirect('/login');
-        })
+        });
     }
 }

@@ -1,9 +1,9 @@
-import * as Vue from 'vue';
-import * as Router from 'vue-router';
-import * as HelloWorld from '@client/components/HelloWorld';
-import * as Login from '@client/components/Login';
-import * as Profile from '@client/components/Profile';
-import * as _404 from '@client/components/404';
+import Vue from 'vue';
+import Router from 'vue-router';
+import HelloWorld from '@client/components/HelloWorld.vue';
+import Login from '@client/components/Login.vue';
+import Profile from '@client/components/Profile.vue';
+import _404 from '@client/components/404.vue';
 
 Vue.use(Router);
 
