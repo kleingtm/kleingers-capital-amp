@@ -1,7 +1,9 @@
-import Sequelize from "sequelize";
-import path from 'path';
+import * as Sequelize from 'sequelize';
 
 class DbUtils {
+
+    public sequelize: Sequelize.Sequelize;
+
     constructor() {
         this.sequelize = new Sequelize(
             process.env.DB, // from .env - not checked in.
@@ -11,8 +13,8 @@ class DbUtils {
                 host: process.env.DB_HOST,
                 dialect: 'postgres',
                 pool: {
-                    max: 5,
-                    min: 0,
+                    // max: 5,
+                    // min: 0,
                     idle: 10000
                 }
             });
@@ -24,7 +26,7 @@ class DbUtils {
             defaultValue: Sequelize.literal(`uuid_generate_v4()`),
             primaryKey: true,
             allowNull: false
-        }
+        };
     }
 
     connect() {
@@ -36,9 +38,9 @@ class DbUtils {
         .catch(err => {
             console.error('Unable to connect to the database:', err);
         })
-        .finally(()=>{
+        .finally(()=> {
             return this.sequelize;
-        })
+        });
     }
 }
 

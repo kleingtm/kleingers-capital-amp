@@ -39,4 +39,4 @@ export default {
     updatedAt: {
         type: Sequelize.DATE
     }
-}
+};

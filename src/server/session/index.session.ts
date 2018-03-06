@@ -5,15 +5,18 @@ import * as bodyParser from 'body-parser';
 import { Strategy } from 'passport-local';
 import UsersModel from '../../db/models/users';
 
-// const Strategy = require('passport-local').Strategy;
-// const bodyParser = require('body-parser');
-
+// DB-agnostic session handling, login, and logout
 export default class Session {
 
     private app: express.Application;
+    private db;
+    private usersModel;
 
     constructor(config: any) {
+        
         this.app = config.app;
+        this.db = config.db;
+        const usersModel = this.db.sequelize.define('users', UsersModel);
 
         // Configure the local strategy for use by Passport.
         //
@@ -29,24 +32,16 @@ export default class Session {
                     passReqToCallback : true // allows us to pass back the entire request to the callback
                 },
                 function (req, email, password, cb) {
-                    const hey = '';
-
-                    return UsersModel.findOne({
+                    return usersModel.findOne({
                         where: {
                             email: email,
                             password: password
                         }
                     })
-                    .then(userFound => {
-                        cb(null, userFound.email)
+                    .then(response => {
+                        if (!response || !response.dataValues) { return cb(null, false); } // user not found or error
+                        return cb(null, response.dataValues); // user found
                     });
-
-                    // db.users.findByemail(email, function(err, user) {
-                    // if (err) { return cb(err); }
-                    // if (!user) { return cb(null, false); }
-                    // if (user.password != password) { return cb(null, false); }
-                    // return cb(null, user);
-                    // });
                 })
         );
 
@@ -57,19 +52,16 @@ export default class Session {
         // typical implementation of this is as simple as supplying the user ID when
         // serializing, and querying the user record by ID from the database when
         // deserializing.
-        passport.serializeUser(function (email, cb) {
-            // cb(null, user.id);
-            const lkajdf = '';
-            cb(null, email);
+        passport.serializeUser((user, cb) => {
+            cb(null, user._id);
         });
 
-        passport.deserializeUser(function (id, cb) {
-            // db.users.findById(id, function (err, user) {
-            //     if (err) { return cb(err); }
-            //     cb(null, user);
-            // });
-            cb(null, 'tom');
-            //var aldkfj = '';
+        passport.deserializeUser((_id, cb) => {
+            return usersModel.findById(_id)
+            .then(response => {
+                if (!response || !response.dataValues) { return cb(response); } // error
+                cb(null, response.dataValues);
+            });
         });
 
         this.app.use(require('cookie-parser')());
@@ -85,13 +77,17 @@ export default class Session {
 
         // Lock everything down AFTER public routes are declared
         // only allow login, logout, and static files that AREN'T .html to be accessed when NOT logged in
-        // this.app.use(/^\/(?!(login|logout|(.*\.(?!html)))).*/, require('connect-ensure-login').ensureLoggedIn());
+        this.app.use(/^\/(?!(login|logout|(.*\.(?!html)))).*/, require('connect-ensure-login').ensureLoggedIn());
+        
+        // login POST route
         this.app.post('/login', passport.authenticate('local', { failureRedirect: '/login', failureFlash: true}),
             (req, res) => {
                 res.json({
                     redirectUrl: req.session.returnTo || '/'
                 });
             });
+
+        // logout GET - logs out then redirects to login
         this.app.get('/logout', (req, res) => {
             req.logout();
             res.redirect('/login');

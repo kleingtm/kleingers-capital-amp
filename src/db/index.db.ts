@@ -1,5 +1,5 @@
 import * as Sequelize from 'sequelize';
-const DB_CONFIG = require('./config')[process.env.NODE_ENV || 'development'];
+const DB_CONFIG = require('./config')[process.env.NODE_ENV];
 
 class DB {
 

@@ -3,7 +3,7 @@
     <img src="../assets/logo.png">
     <h1>{{ msg }}</h1>
     <form @submit.prevent="login">
-      <label><input v-model="username" placeholder="username"></label><br>
+      <label><input v-model="email" placeholder="email"></label><br>
       <label><input v-model="password" placeholder="password" type="password"></label><br>
       <button type="submit">Login</button>
       <p v-if="error" class="error">Bad login information</p>
@@ -16,28 +16,28 @@
     import Vue from 'vue';
     import LoginService from './Login.service';
 
-    console.log(JSON.stringify(process.env));
-
     export default Vue.extend({
         name: 'login',
         data () {
             return {
                 email: '',
-                pass: '',
+                password: '',
                 error: false,
                 msg: 'Welcome to the login page!'
             }
         },
         methods: {
             login: function (e:MouseEvent) {
-                console.log('button clicked!');
                 LoginService.login({
-                    username: this.username,
+                    email: this.email,
                     password: this.password
                 })
-                .then((response) => {
-                    console.log('response');
-                });
+                .then(response => {
+                    console.log(`successful response to FE: ${JSON.stringify(response)}`);
+                })
+                .catch(err => {
+                    console.log(`login error to FE`)
+                })
             }
         }
     });
