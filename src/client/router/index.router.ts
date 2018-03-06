@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HelloWorld from '@client/components/HelloWorld.vue';
-import Login from '@client/components/Login.vue';
-import Profile from '@client/components/Profile.vue';
-import _404 from '@client/components/404.vue';
+import HelloWorld from '@client/pages/HelloWorld.vue';
+import Login from '@client/pages/Login.vue';
+import UiElements from '@client/pages/UiElements.vue';
+import _404 from '@client/pages/404.vue';
 
 Vue.use(Router);
 
@@ -21,9 +21,9 @@ export default new Router({
       component: Login
     },
     {
-      path: '/profile',
-      name: 'Profile',
-      component: Profile
+      path: '/ui-elements',
+      name: 'UiElements',
+      component: UiElements
     },
     {
         path: '*',

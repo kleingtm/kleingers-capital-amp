@@ -9,12 +9,10 @@ import * as WebpackConfig from '../../webpack.config.js';
 import { Api } from './api/index.api';
 import DB from '../db/index.db';
 
-
 DB.connect() // connect to the database
     .then(() => {
 
         const app = express();// instantiate app
-
         new Session({ // initialize authorization middleware / passport -- public routes not locked down should go above this
             app: app,
             db: DB

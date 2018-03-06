@@ -1,6 +1,11 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const pjson = require('./package.json');
 const dev = process.env.NODE_ENV === 'development';
 
@@ -9,7 +14,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'dist'), //
         publicPath: '/',
-        filename: dev ? pjson.name + '.js': pjson.name + '.[hash].js'
+        filename: dev ? pjson.name + '.js' : pjson.name + '.[hash].js'
     },
     resolve: {
         extensions: ['.ts', '.js', '.vue', '.json'],
@@ -48,6 +53,17 @@ module.exports = {
                 }
             },
             {
+                test: /\.scss$/,
+                include: path.join(__dirname, 'src/client'),
+                use: [{
+                    loader: "style-loader" // creates style nodes from JS strings
+                }, {
+                    loader: "css-loader" // translates CSS into CommonJS
+                }, {
+                    loader: "sass-loader" // compiles Sass to CSS
+                }]
+            },
+            {
                 test: /\.(png|jpg|jpg|gif|svg)(\?.*)?$/,
                 loader: 'url-loader',
                 include: path.join(__dirname, 'src/client'),
@@ -80,7 +96,13 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: dev ? 'index.html' : 'index.[hash:7].html', // output path within static folder -> dist/index.html
             template: path.join(__dirname, 'src/client/index.html'), // html entry used
-            inject: true
+            inject: true,
+            minify: process.env.NODE_ENV === 'production' ? {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeAttributeQuotes: true
+            } : {},
+            chunksSortMode: 'dependency'
         }),
         new HtmlWebpackPlugin({
             filename: dev ? 'home.html' : 'home.[hash:7].html', // output path within static folder -> dist/index.html
@@ -103,7 +125,6 @@ module.exports = {
 
 
 if (process.env.NODE_ENV === 'production') {
-    module.exports.devtool = '#source-map';
     // http://vue-loader.vuejs.org/en/workflow/production.html
     module.exports.plugins = (module.exports.plugins || []).concat([
         new webpack.DefinePlugin({
@@ -111,15 +132,30 @@ if (process.env.NODE_ENV === 'production') {
                 NODE_ENV: '"production"'
             }
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            compress: {
-                warnings: false
-            }
+        new UglifyJsPlugin({
+            sourceMap: false,
+            uglifyOptions: {
+                compress: {
+                    warnings: false
+                }
+            },
+            parallel: true
         }),
         new webpack.LoaderOptionsPlugin({
             minimize: true
-        })
+        }),
+        // extract css into its own file
+        // new ExtractTextPlugin({
+        //     filename: utils.assetsPath('css/[name].[contenthash].css'),
+        //     allChunks: true, //https://github.com/vuejs-templates/webpack/issues/1110
+        // }),
+        // new OptimizeCSSPlugin({
+        //     assetNameRegExp: /\.optimize\.css$/g,
+        //     cssProcessor: require('cssnano'),
+        //     cssProcessorOptions: { discardComments: { removeAll: true } },
+        //     canPrint: true
+        // }),
+        new BundleAnalyzerPlugin()
     ])
 }
 
