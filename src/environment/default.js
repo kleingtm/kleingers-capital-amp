@@ -3,7 +3,7 @@ module.exports = {
     api: {
     },
     app: {
-        name: `CloudPress`,
+        name: `Stellar Wallet`,
         port: ``
     }
 };

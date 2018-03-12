@@ -36,6 +36,7 @@
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.33.4",
+    "stellar-sdk": "^0.8.0",
     "vue": "^2.5.13",
     "vue-custom-element": "^2.1.0",
     "vue-router": "^3.0.1",
