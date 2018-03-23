@@ -3,7 +3,7 @@ import { Hello } from './hello.api';
 import { Stellar } from './stellar.api';
 
 export function Api (app: express.Application) {
-    // pull in routes categorized by file:
+    app.use(require('morgan')('short'));
     Hello(app);
     Stellar(app);
 }
