@@ -1,0 +1,76 @@
+# Use postgres/example user/password credentials
+# Default data location: /var/lib/postgresql/data
+version: '3.3'
+
+services:
+
+  db: # adminer "host" field for login
+    image: postgres:10.2-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: 'postgres' # adminer "user" field for login
+      POSTGRES_PASSWORD: 'password' # adminer "password" field for login
+      POSTGRES_DB: 'postgres' # adminer "db" field for login
+
+  # http://localhost:8080
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+#  pgadmin:
+#    image: fenglc/pgadmin4
+#    restart: always
+#    environment:
+#      USER: 'kleingtm@gmail.com'
+#      PASSWORD: 'password'
+#      POSTGRES_USER: 'kleingtm@gmail.com'
+#      POSTGRES_PASSWORD: 'password'
+#    links:
+#      - postgres:postgres
+#    ports:
+#      - 5050:5050
+#    networks:
+#      - postgres
+#
+#networks:
+#  postgres:
+#    driver: bridge
+
+
+#    volumes:
+#       - /data/pgadmin:/root/.pgadmin
+#      networks:
+#        - postgres
+
+
+#version: '2'
+#
+#services:
+#  postgres:
+#    image: postgres:10.2-alpine
+#    environment:
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: changeme
+#      PGDATA: /data/postgres
+##    volumes:
+##       - /data/postgres:/data/postgres
+#    ports:
+#      - "5432:5432"
+#    restart: always
+
+#  pgadmin:
+#    environment:
+#      DEFAULT_USER: pgadmin4@pgadmin.org
+#      DEFAULT_PASSWORD: admin
+#    links:
+#      - postgres:postgres
+#    image: fenglc/pgadmin4
+##    volumes:
+##       - /data/pgadmin:/root/.pgadmin
+#    ports:
+#      - "5050:5050"
+#    networks:
+#      - postgres
+#    restart: always

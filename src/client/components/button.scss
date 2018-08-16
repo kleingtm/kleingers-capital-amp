@@ -1,0 +1,20 @@
+@import 'colors';
+@import 'variables';
+
+button {
+    outline: none;
+    display: block;
+    height: 42px;
+    font-size: 16px;
+    padding: 0 20px;
+    border: 1px solid $button-border-color;
+    background-color: $button-background-color;
+    border-radius: 4px;
+    color: $text-against-dark;
+    transition: color $transition-time, border-color $transition-time, background-color $transition-time;
+    &:hover {
+        cursor: pointer;
+        border-color: $border-hover-color;
+        background-color: darken($button-background-color, 15%);
+    }
+}
